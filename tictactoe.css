@@ -1,6 +1,7 @@
 .jumbotron {
   margin: 5% auto;
-  margin-left: 43%;
+  /* margin-left: 43%; */
+  text-align: center;
 }
 
 td {
@@ -13,4 +14,16 @@ td {
 
 table {
   margin: auto auto;
+}
+
+body {
+  background-color: rgb(197, 197, 253);
+}
+
+button {
+  background-color: rgb(23, 23, 207);
+  color: whitesmoke;
+  font-size: medium;
+  border: whitesmoke;
+  padding: 5pt 15pt;
 }
