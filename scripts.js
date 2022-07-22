@@ -96,7 +96,7 @@ const resetBoard = () => {
   // =
   // document
   // const
-  
+  console.log(squares)
   // loops over the HTML Collection of TDs and clears out the Xs and Os
   for (i=0; i < squares.length; i++) {
 
@@ -106,4 +106,14 @@ const resetBoard = () => {
     // sets the innerHTML to null to replace the "X" or "O"
     squares[i].innerHTML = null
   }  
+  // reset the marker back to "X"
+    // const changeMarkerBack = () => {
+    // if(currentMarker === "O"){
+    //   currentMarker = "X"
+    // } else {
+    //   currentMarker = "X"
+    // }
+    currentMarker = 'X'
+
+  
 }
