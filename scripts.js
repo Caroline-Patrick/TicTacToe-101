@@ -9,6 +9,15 @@
 // The variable will change from X to O based on what player turn it is. We need to hold this so we can place an X or O on the board when they're clicked.
 let currentMarker = 'X'
 
+let board = [["" , "" , ""], //row 1, index 0
+             ["", "", ""], // row 2, index 1
+             [ "", "", ""]] // row 3, index 2
+
+
+
+
+
+
 
 
 
@@ -16,6 +25,8 @@ let currentMarker = 'X'
 // "this" is a special word in JS but "element" could have been "thing" or "el" or whatever we wanted it to be as long as we use it again in the "console.log" statement
 const handleClick = (element) => {
 
+  const row = parseInt(element.id.charAt(0))
+  const column = parseInt(element.id.charAt(2))
   // this uses the "log" method on the "console" to log out the element's id so we can see it with our human eyes
   console.log(`The element you clicked on has an id:  ${element.id}`)
 
@@ -45,7 +56,8 @@ const addMarker = (id) => {
   
   // @TODO-2: Build a line of code that will set the innerHTML property of the element that was clicked to the "currentMarker"
 
-  document.getElementById(id).innerHTML = currentMarker
+  document.getElementById(id).innerHTML = currentMarker;
+  board[row][column] = currentMarker
   
   // @TODO-2.5: MIX & MATCH, You will need the following pieces of code to build that line:
   // = currentMarker
@@ -73,11 +85,6 @@ const changeMarker = () => {
     currentMarker = "X"
   }
 }
-
-
-
-
-
 
 
 
@@ -117,3 +124,41 @@ const resetBoard = () => {
 
   
 }
+
+//check for horizontal winner
+const checkForWinner = () => {
+  if((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
+  || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
+  || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
+  || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
+  || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+  || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
+  ) {
+    console.log("You Won!")
+  }
+  
+  }
+
+  //check for vertical winner
+  if((board[0][0] == "X" && board[1][0] == "X" && board[2][0] == "X") 
+  || (board[0][0] == "O" && board[1][0] == "O" && board[2][0] == "O")
+  || (board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X")
+  || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")
+  || (board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X")
+  || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")
+  )
+  {
+    console.log("You Won!")
+  }
+
+  //check for diagonal winner
+
+  if((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
+  || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
+  || (board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X")
+  || (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")
+)
+{
+  console.log("You Won!")
+}
+
