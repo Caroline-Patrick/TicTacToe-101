@@ -29,8 +29,7 @@ const handleClick = (element) => {
   }
 }
 
-const row = parseInt(id.charAt(0))
-const column = parseInt(id.charAt(2))
+
 
 // this function places the "currentMarker" inside the HTML element that was clicked and calls the "changeMarker" function.
 const addMarker = (id) => {
