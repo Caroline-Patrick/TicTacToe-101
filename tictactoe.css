@@ -1,3 +1,8 @@
+/* * {
+  margin: 0;
+  padding: 0;
+
+} */
 .jumbotron {
   margin: 5% auto;
   /* margin-left: 43%; */
@@ -26,4 +31,17 @@ button {
   font-size: medium;
   border: whitesmoke;
   padding: 5pt 15pt;
+}
+
+#winner {
+  background-color: rgb(23, 23, 207);
+  color: red;
+}
+
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
 }

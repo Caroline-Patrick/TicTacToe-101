@@ -69,9 +69,12 @@ const changeMarker = () => {
 // This "resetBoard" function is called when the user clicks on the "Restart" button.
 const resetBoard = () => {
   
+  stopConfetti();
   document.getElementById("winner").innerHTML= null
-  board[row][column] = null
-
+ board = [["" , "" , ""], //row 1, index 0
+ ["", "", ""], // row 2, index 1
+ [ "", "", ""]] // row 3, index 2
+  
   const squares = document.getElementsByTagName("TD")
   // @TODO-3: To make your "Restart" button work you'll need to build a line of code here that:
       // collects all of the "td" elements into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp    
@@ -95,8 +98,9 @@ const resetBoard = () => {
 }
 
 const checkForWin  = () => {
-  if (horizontalWinner() || verticalWinner() || diagonalWinner == "true"){
-    const youWon = document.getElementById("winner").innerHTML = `<h1>Player ${currentMarker} won!</h1>`
+  if (horizontalWinner() || verticalWinner() || diagonalWinner()){
+    const youWon = document.getElementById("winner").innerHTML = `<h1>Player ${currentMarker} won!</h1>`;
+    startConfetti();
   }
   else {
     changeMarker()
@@ -113,7 +117,8 @@ const horizontalWinner = () => {
   || (board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "O")
   || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")
   ) {
-    console.log("you win!")
+    console.log("you win!");
+  
     return true;
   }
   
@@ -141,6 +146,8 @@ const horizontalWinner = () => {
   || (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O")
 )
 {
+  console.log("you won!")
   return true;
+  
 }
   }
